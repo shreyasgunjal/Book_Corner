@@ -1,0 +1,123 @@
+﻿@model IEnumerable<MVC_Project.Models.StoreRequest>
+
+@{
+    ViewBag.Title = "Store Requests";
+}
+
+<h2>Store Requests</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Request ID</th>
+            <th>Store ID</th>
+            <th>Publisher ID</th>
+            <th>Title ID</th>
+            <th>Request Details</th>
+            <th>Status</th>
+            <th>Request Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var request in Model)
+        {
+            <tr>
+                <td>@request.RequestId</td>
+                <td>@request.StoreId</td>
+                <td>@request.PublisherId</td>
+                <td>@request.TitleId</td>
+                <td>@request.RequestDetails</td>
+                <td>@request.Status</td>
+                <td>@request.RequestDate</td>
+                <td>
+                    @if (request.Status == "Pending")
+                    {
+                        @Html.ActionLink("Accept", "AcceptRequest", new { id = request.RequestId }, new { @class = "btn btn-success" })
+                        @Html.ActionLink("Reject", "RejectRequest", new { id = request.RequestId }, new { @class = "btn btn-danger", @href = Url.Action("RejectRequest", new { id = request.RequestId }) })
+
+                    }
+                    else
+                    {
+                        <span>@request.Status</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.btn-danger').on('click', function (event) {
+                event.preventDefault(); // Prevent the default action
+
+                var rejectUrl = $(this).attr('href'); // URL to reject the store request
+
+                if (confirm('Are you sure you want to reject this request and delete the title?')) {
+                    // Step 1: Reject the Store Request
+                    $.ajax({
+                        url: rejectUrl, // Reject URL
+                        type: 'POST', // Use POST method for rejecting the request
+                        success: function (response) {
+                            alert('Request rejected successfully!');
+
+                            // Step 2: Delete the Title
+                            var titleId = response.TitleId; // Assuming TitleId is returned in the response
+                            var deleteTitleUrl = 'https://localhost:44386/api/titles/' + titleId; // API URL to delete the title
+
+                            $.ajax({
+                                url: deleteTitleUrl, // URL for deleting the title
+                                type: 'DELETE', // DELETE method to remove the title
+                                success: function (response) {
+                                    alert('Title deleted successfully!');
+                                    location.reload(); // Reload the page to reflect changes
+                                },
+                               
+                            });
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error rejecting request:', {
+                                status: status,
+                                error: error,
+                                responseText: xhr.responseText
+                            });
+                            alert('Error rejecting request: ' + xhr.responseText);
+                        }
+                    });
+                }
+            });
+        });
+
+        $(document).ready(function () {
+            $('.btn-success').on('click', function (event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                var url = $(this).attr('href'); // Get the URL from the href attribute
+
+                if (confirm('Are you sure you want to accept this request?')) {
+                    $.ajax({
+                        url: url,
+                        type: 'POST', // POST method because it's handling a form submission
+                        success: function (response) {
+                            alert('Request accepted successfully!');
+                            location.reload(); // Reload the page to reflect changes
+                        },
+                        error: function (xhr, status, error) {
+                            console.error('Error details:', {
+                                status: status,
+                                error: error,
+                                responseText: xhr.responseText
+                            });
+                            alert('Server error: ' + xhr.responseText);
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+}
+

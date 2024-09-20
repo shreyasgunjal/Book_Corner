@@ -1,0 +1,224 @@
+﻿@model IEnumerable<MVC_Project.Models.Title>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<style>
+    .bg-dark {
+        --bs-bg-opacity: 1;
+        background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important;
+        margin-top: 10px;
+    }
+</style>
+
+
+<h2 class="d-inline-block">Index</h2>
+
+<div class="d-flex justify-content-end align-items-center mt-2 float-end">
+    <div class="dropdown me-3">
+        <div class="dropdown d-inline-block">
+            <button class="btn btn-secondary dropdown-toggle bg-dark" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                Filters
+            </button>&nbsp;
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <li><a id="filterByTitleLink" class="dropdown-item" href="#" onclick="setFilter('title', event)">Search titles by title</a></li>
+                <li><a id="filterByTypeLink" class="dropdown-item" href="#" onclick="setFilter('type', event)">Search Title By Type</a></li>
+                <li><a id="filterByPubIDLink" class="dropdown-item" href="#" onclick="setFilter('pubid', event)">Search title by pub-id</a></li>
+                <li><a id="filterByPubDateLink" class="dropdown-item" href="#" onclick="setFilter('pubdate', event)">Search title by pub-date</a></li>
+                <li><a id="filterByAuthorNameLink" class="dropdown-item" href="#" onclick="setFilter('authorname', event)"> Search title by authorname</a></li>
+                @*<li><a id="filterByTop5TitleByYtdLink" class="dropdown-item" href="#" onclick="setFilter('default', event)">Search top5title by ytd</a></li>*@
+            <li> <a id="filterByTop5TitleByYtdLink" class="dropdown-item" href="#" onclick="filterByTop5TitleByYtd(event)">
+                    Search top 5 title by ytd
+                 </a>
+            </li>
+            </ul>
+        </div>
+        <div class="dropdown float-end">
+            <div id="searchContainer" style="display: none; margin-top: 10px;">
+                <input id="searchBox" type="text" name="searchValue" placeholder="Search" class="form-control" style="width: 200px; display: inline-block;" />
+                <a href="#" id="searchLink" class="btn btn-primary" style="display: inline-block;" onclick="submitSearch(event)">Search</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p>
+   @* @Html.ActionLink("Add New Title", "Create", null, new { @class = "btn btn-dark" })*@
+    @Html.Raw("<a href='" + Url.Action("Create") + "' class='btn btn-success'><i class='fas fa-plus'></i> Add New Title</a>")
+</p>
+
+
+<h3>Titles</h3>
+
+
+<div class="row mt-4">
+    @*@if (Model != null && Model.Any())
+        {*@
+    @foreach (var title in Model)
+    {
+        <div class="col-md-4 mb-3"  data-aos="fade-up">
+            <div class="card">
+                <div class="card-header">
+                    <strong>Title Id : </strong>@title.title_id
+                </div>
+                <div class="card-body">
+                    @*<h5 class="card-title">Title ID: @item.title_id</h5>*@
+                    <p class="card-text">
+                        <strong>Title:</strong> @title.title1 <br />
+                        <strong>Type:</strong> @title.type <br />
+
+                        <strong>PubID:</strong> @title.pub_id <br />
+                        <strong>Price:</strong> @title.price <br />
+                        @*<strong>Advance:</strong> @title.advance?.ToString("C") <br />
+                            <strong>Royalty:</strong> @title.royalty <br />
+                            <strong>Ytd Sales:</strong> @title.ytd_sales <br />
+                            <strong>Notes:</strong> @title.notes <br />*@
+                        <strong>PubDate:</strong> @title.pubdate.ToString("dd/MM/yyyy")
+
+                    </p>
+                </div>
+
+                <div class="card-footer text-muted">
+                    <!-- Card footer content, e.g., links -->
+                    <a href="@Url.Action("Edit", new { id = title.title_id })" class="btn btn-primary">Edit</a>
+                    <a href="@Url.Action("Details", new { id = title.title_id })" class="btn btn-info">Details</a>
+                    <a href="@Url.Action("Delete", new { id = title.title_id })" class="btn btn-danger">Delete</a>
+                </div>
+
+            </div>
+        </div>
+    }
+</div>
+
+
+@section Scripts {
+    <script>
+                function updateLinkWithFilter(filterType) {
+                    var searchValue = document.getElementById('searchBox').value;
+                    var url = '@Url.Action("Index", "TitleMVC")' + '?searchType=' + filterType + '&searchValue=' + encodeURIComponent(searchValue);
+                    return url;
+                }
+
+                function handleFormSubmit(event) {
+                    event.preventDefault(); // Prevent form submission
+                    var searchValue = document.getElementById('searchBox').value;
+                    var filterType = document.getElementById('filterType').value; // Assuming you use a hidden input to store the filter type
+                    var url = updateLinkWithFilter(filterType);
+                    window.location.href = url; // Redirect to the URL
+                    return false; // Prevent default form submission
+                }
+
+                function filterByTitle(event) {
+                    event.preventDefault();
+                    var link = document.getElementById('filterByTitleLink');
+                    link.href = updateLinkWithFilter('title');
+                    window.location.href = link.href;
+                }
+
+                function filterByType(event) {
+                    event.preventDefault();
+                    var link = document.getElementById('filterByTypeLink');
+                    link.href = updateLinkWithFilter('type');
+                    window.location.href = link.href;
+                }
+
+                function filterByPubID(event) {
+                    event.preventDefault();
+                    var link = document.getElementById('filterByPubIDLink');
+                    link.href = updateLinkWithFilter('pubid');
+                    window.location.href = link.href;
+                }
+
+               
+               function filterByPubDate(event) {
+                event.preventDefault();
+
+                // Get the search value (pub date) from the search input
+                var searchValue = document.getElementById('searchBox').value;
+
+                // Ensure the date is in the correct format (e.g., "yyyy-MM-dd")
+                // You can skip converting it to a Date object if your API expects the exact input format
+                // Directly use the input value
+                var formattedDate = searchValue; // Assuming the input is already in the correct format
+
+                // Construct the URL with searchType and searchValue parameters
+                var newUrl = `/TitleMVC?searchType=pubdate&searchValue=${formattedDate}`;
+
+                // Log the new URL for debugging
+                console.log("Navigating to:", newUrl);
+
+                // Redirect to the new URL
+                window.location.href = newUrl;
+               }
+
+
+                function filterByAuthorName(event) {
+                    event.preventDefault();
+                    var link = document.getElementById('filterByAuthorNameLink');
+                    link.href = updateLinkWithFilter('authorname');
+                    window.location.href = link.href;
+                }
+
+                function filterByTop5TitleByYtd(event) {
+                    event.preventDefault();
+                    var link = document.getElementById('filterByTop5TitleByYtdLink');
+                    link.href = updateLinkWithFilter('top5Titles');
+                    window.location.href = link.href;
+                }
+
+
+                let currentFilter = ''; // Variable to store the currently selected filter
+
+                // Function to set the selected filter and show the search box
+                function setFilter(filterType, event) {
+                event.preventDefault(); // Prevent default anchor behavior
+
+                // Store the selected filter type
+                currentFilter = filterType;
+
+                // Show the search box container
+                const searchContainer = document.getElementById('searchContainer');
+                searchContainer.style.display = 'block';
+
+                // Update the search box placeholder based on the selected filter type
+                const searchBox = document.getElementById('searchBox');
+                searchBox.placeholder = `Search by ${filterType.charAt(0).toUpperCase() + filterType.slice(1)}`;
+}
+
+                // Function to handle search submission using the anchor link
+                function submitSearch(event) {
+                event.preventDefault(); // Prevent default anchor behavior
+
+                const searchValue = document.getElementById('searchBox').value;
+
+               // Ensure that the search value is not empty
+                if (searchValue.trim() === '') {
+                alert('Please enter a search term.');
+                return;
+                }
+
+               // Build the URL for the search query using the current filter and search value
+              const actionUrl = '@Url.Action("Index", "TitleMVC")' + `?searchType=${currentFilter}&searchValue=${encodeURIComponent(searchValue)}`;
+
+             // Redirect to the constructed URL
+              window.location.href = actionUrl;
+              }
+
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Optional: Update the filter links on page load
+                    filterByTitle();
+                    filterByType();
+                    filterByPudID();
+                    filterByPubDate();
+                    filterByAuthorName();
+                    filterByTop5TitleByYtd();
+                });
+    </script>
+
+
+    @*<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>*@
+}

@@ -1,0 +1,155 @@
+﻿@model MVC_Project.Models.Sale
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<hr />
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-info text-white">
+        <h4>Sale Information</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.stor_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.stor_id)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.ord_num)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ord_num)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.ord_date)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.ord_date)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.qty)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.qty)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.payterms)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.payterms)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.title_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.title_id)
+            </dd>
+
+        </dl>
+    </div>
+    </div>
+
+        <!-- Action buttons for Edit and Back to List -->
+        @*<a href="~/Views/AuthorsMVC/Details.cshtml">~/Views/AuthorsMVC/Details.cshtml</a>*@
+        <div class="d-flex justify-content-between">
+            <!-- Edit Button -->
+            @*@Html.ActionLink("Edit", "Edit", new { id = Model.ord_num }, new { @class = "btn btn-warning btn-lg px-5" })*@
+
+            <!-- Back to List Button -->
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-primary btn-lg px-5" })
+        </div>
+   
+
+
+
+
+
+
+
+
+
+
+
+
+        @*@model MVC_Project.Models.Sale
+
+        @{
+            ViewBag.Title = "Details";
+        }
+
+        <h2>Details</h2>
+
+        <div>
+            <h4>Sale</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.stor_id)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.stor_id)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ord_num)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ord_num)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ord_date)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ord_date)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.qty)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.qty)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.payterms)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.payterms)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.title_id)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.title_id)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ord_num }) |
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-primary btn-lg px-3" })
+        </p>*@

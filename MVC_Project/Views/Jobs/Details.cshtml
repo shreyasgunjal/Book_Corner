@@ -1,0 +1,141 @@
+﻿@model MVC_Project.Models.Job
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<hr />
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-info text-white">
+        <h4>Job Information</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.job_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.job_id)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.job_desc)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.job_desc)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.min_lvl)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.min_lvl)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.max_lvl)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.max_lvl)
+            </dd>
+
+            @*<dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.payterms)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.payterms)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.title_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.title_id)
+            </dd>*@
+
+        </dl>
+    </div>
+</div>
+
+<!-- Action buttons for Edit and Back to List -->
+@*<a href="~/Views/AuthorsMVC/Details.cshtml">~/Views/AuthorsMVC/Details.cshtml</a>*@
+<div class="d-flex justify-content-between">
+    <!-- Edit Button -->
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.job_id }, new { @class = "btn btn-warning btn-lg px-5" })*@
+
+    <!-- Back to List Button -->
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-primary btn-lg px-5" })
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model MVC_Project.Models.Job
+
+    @{
+        ViewBag.Title = "Details";
+    }
+
+    <h2>Details</h2>
+
+    <div>
+        <h4>Job</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.job_id)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.job_id)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.job_desc)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.job_desc)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.min_lvl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.min_lvl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.max_lvl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.max_lvl)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new {  id = Model.job_id  }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>*@

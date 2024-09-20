@@ -1,0 +1,95 @@
+﻿@model MVC_Project.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<br />
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-info text-white">
+        <h4>Employee Information</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.emp_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.emp_id)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.fname)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.fname)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.minit)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.minit)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.lname)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.lname)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.job_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.job_id)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.job_lvl)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.job_lvl)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.pub_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.pub_id)
+            </dd>
+
+            @*<dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.zip)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.zip)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.contract)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.contract)
+            </dd>*@
+
+        </dl>
+    </div>
+</div>
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.emp_id }, new { @class = "btn btn-success" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+</p>

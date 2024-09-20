@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4773212296cd418fb8f7367ede75907a" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="pubsModel.author" Width="1.5" PointX="6" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.employee" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.job" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.pub_info" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.publisher" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.sale" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.store" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.titleauthor" Width="1.5" PointX="8.25" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.title" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.discount" Width="1.5" PointX="5.25" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="pubsModel.roysched" Width="1.5" PointX="5.25" PointY="19" IsExpanded="true" />
+        <AssociationConnector Association="pubsModel.FK__titleauth__au_id__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="pubsModel.FK__employee__job_id__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="pubsModel.FK__employee__pub_id__4BAC3F29" ManuallyRouted="false" />
+        <AssociationConnector Association="pubsModel.FK__pub_info__pub_id__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="pubsModel.FK__titles__pub_id__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="pubsModel.FK__sales__stor_id__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="pubsModel.FK__sales__title_id__38996AB5" ManuallyRouted="false" />
+        <AssociationConnector Association="pubsModel.FK__discounts__stor___3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="pubsModel.FK__titleauth__title__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="pubsModel.FK__roysched__title___3A81B327" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="pubsModel.StoreRequest" Width="1.5" PointX="8.25" PointY="8.75" />
+        <AssociationConnector Association="pubsModel.FK__StoreRequ__Publi__3FD07829" />
+        <AssociationConnector Association="pubsModel.FK__StoreRequ__Store__3EDC53F0" />
+        <AssociationConnector Association="pubsModel.FK__StoreRequ__Title__40C49C62" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,96 @@
+﻿@model MVC_Project.Models.Employee
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+@*<h3>Are you sure you want to delete this?</h3>*@
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.emp_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.emp_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.minit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.minit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.job_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.job_lvl)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.job_lvl)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pub_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pub_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.hire_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.hire_date)
+        </dd>
+
+    </dl>
+    @using (Html.BeginForm(null, null, FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete this employee?');" }))
+    {
+        @Html.AntiForgeryToken()
+
+        @*<div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>*@
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Delete" class="btn btn-danger me-2" />
+                @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+            </div>
+        </div>
+
+    }
+
+</div>

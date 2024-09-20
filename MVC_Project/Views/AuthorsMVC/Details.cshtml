@@ -1,0 +1,216 @@
+﻿@model MVC_Project.Models.Author
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Author Details</h2>
+
+@*<div>*@
+    @*<h4>Author</h4>*@
+    <hr />  
+    
+    @*<dl class="dl-horizontal">*@ 
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-info text-white">
+        <h4>Author Information</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.au_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.au_id)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.au_lname)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.au_lname)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.au_fname)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.au_fname)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.phone)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.phone)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.address)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.city)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.city)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.state)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.state)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.zip)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.zip)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.contract)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.contract)
+            </dd>
+
+        </dl>
+    </div>
+    @*<p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.au_id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>*@
+
+
+
+    <!-- Action buttons for Edit and Back to List -->
+    @*<a href="~/Views/AuthorsMVC/Details.cshtml">~/Views/AuthorsMVC/Details.cshtml</a>*@
+    <div class="d-flex justify-content-between">
+        <!-- Edit Button -->
+        @Html.ActionLink("Edit", "Edit", new { id = Model.au_id }, new { @class = "btn btn-warning btn-lg px-5" })
+
+        <!-- Back to List Button -->
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-primary btn-lg px-5" })
+    </div>
+
+
+
+
+
+
+
+
+
+    @*@model MVC_Project.Models.Author
+
+                @{
+                    ViewBag.Title = "Details";
+                }
+
+                <h2>Details</h2>
+
+                <div>
+                    <h4>Author</h4>
+                    <hr />
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.au_id)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.au_id)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.au_lname)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.au_lname)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.au_fname)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.au_fname)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.phone)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.phone)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.address)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.address)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.city)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.city)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.state)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.state)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.zip)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.zip)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.contract)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.contract)
+                        </dd>
+
+                    </dl>
+                </div>
+
+
+                <div class="d-flex justify-content-between">
+            <!-- Edit Button -->
+            @Html.ActionLink("Edit", "Edit", new { id = Model.au_id }, new { @class = "btn btn-warning btn-lg px-5" })
+
+            <!-- Back to List Button -->
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-outline-primary btn-lg px-5" })
+        </div>*@
+
+
+

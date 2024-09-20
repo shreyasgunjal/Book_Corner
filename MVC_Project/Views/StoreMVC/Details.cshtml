@@ -1,0 +1,73 @@
+﻿@model MVC_Project.Models.Store
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-info text-white">
+        <h4>Store Information</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.stor_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.stor_id)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.stor_name)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.stor_name)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.stor_address)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.stor_address)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.city)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.city)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.state)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.state)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.zip)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.zip)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.stor_id }, new { @class = "btn btn-warning" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+</p>

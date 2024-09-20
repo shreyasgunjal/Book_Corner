@@ -1,0 +1,83 @@
+﻿@model MVC_Project.Models.Store
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-header bg-info text-white">
+        <h4>Store Information</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.stor_id)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.stor_id)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.stor_name)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.stor_name)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.stor_address)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.stor_address)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.city)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.city)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.state)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.state)
+            </dd>
+
+            <dt class="col-sm-3">
+                @Html.DisplayNameFor(model => model.zip)
+            </dt>
+
+            <dd class="col-sm-9">
+                @Html.DisplayFor(model => model.zip)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { onsubmit = "return confirm('Are you sure you want to delete this Store?');" }))
+{
+    @Html.AntiForgeryToken()
+
+    @*<div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Delete" class="btn btn-danger me-2" />
+            @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+}
+</div>
